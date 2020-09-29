@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  TwitterLBTA
+//  Twitter
 //
-//  Created by Edward Pizzurro Fortun on 12/12/17.
+//  Created by Edward Pizzurro Fortun on 7/12/17.
 //  Copyright © 2017 Pencil. All rights reserved.
 //
 
@@ -17,6 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        
+        //let homeController = HomeController(collectionViewLayout: UICollectionViewFlowLayout())
+        //window?.rootViewController = UINavigationController(rootViewController: homeController)
+        
+        window?.rootViewController = UINavigationController(rootViewController: HomeDataSourceController())
+        
         return true
     }
 
@@ -53,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "TwitterLBTA")
+        let container = NSPersistentContainer(name: "Twitter")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
